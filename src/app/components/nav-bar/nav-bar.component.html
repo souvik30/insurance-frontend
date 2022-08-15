@@ -1,0 +1,73 @@
+
+      <!-- <span class="title"><a routerLink="/">Sports Event Management System</a></span>
+      <span class="example-spacer"></span>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" routerLink="/dashboard">Sports Event Management</a>
+        <a class="navbar-brand" style="color:#1eae9d  ;" *ngIf="loggedIn">Welcome {{userNameDisplay}}</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h3 *ngIf="loggedIn" class="nav-link"> </h3>
+        <div class="navbar-collapse collapse" id="navbarColor01" >
+          <ul class="navbar-nav mr-auto">
+            <li  class="nav-item active">
+              <a *ngIf="loggedIn"  class="nav-link" routerLink="/sportslist">Sports List</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="loggedIn" class="nav-link" routerLink="/playerlist" >Player Info</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="loggedIn" class="nav-link" routerLink="/event">Event Info</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="loggedIn" class="nav-link" routerLink="/participationList">Participation List</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="loggedIn" class="nav-link" routerLink="/participationStatus" >Status</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="!loggedIn" class="nav-link" router="/login"> Login</a>
+            </li>
+            <li class="nav-item">
+              <a *ngIf="loggedIn" class="nav-link"  (click)="logoutUser()"> Logout</a>
+            </li>
+
+          </ul>
+        </div>
+
+    </nav> -->
+
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" routerLink="/dashboard">IWTD</a>
+        <a class="navbar-brand" style="color:#1eae9d  ;" *ngIf="loggedIn">Welcome {{userNameDisplay}}</a>
+        <!-- <button class="navbar-toggler d-lg-none" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation"> -->
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li  class="nav-item">
+          <a *ngIf="loggedIn"  class="nav-link" routerLink="/master-table">Master List</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="loggedIn" class="nav-link" routerLink="/dependent-table" >Dependent List</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!loggedIn" class="nav-link" router="/login"> Login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="loggedIn" class="nav-link"  (click)="logoutUser()"> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> -->
+
+
+<router-outlet></router-outlet>

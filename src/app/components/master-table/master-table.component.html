@@ -1,0 +1,37 @@
+<h1 class="text-center mt">Member List</h1>
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <a  mat-raised-button color="primary" class="mb"  routerLink=''>Add Member</a> &nbsp;
+        <a  mat-raised-button color="primary" class="mb"  routerLink='/search-member'>Search Member</a>
+        <div class="row">
+<table id="customers">  
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>DEPARTMENT</th>          
+            <th>MOBILE</th>
+            <th>ADDRESS</th>
+            <th>EMAIL</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of Data;let index=index" >
+            <td>{{member['MEMBER NAME']}}</td>
+            <td>{{member['DEPARTMENT']}}</td>
+            <td>{{member['MOBILE']}}</td>
+            <td>{{member['ADDRESS']}}</td>
+            <td>{{member['E-MAIL ID']}}</td>
+            <!-- <td>{{data.member}}</td>
+            <td>{{data.sportsName}}</td>
+            <td>{{data.noOfSlots}}</td> -->
+           
+            <td>
+                <button type="button" mat-raised-button color="warn" >Delete</button>&nbsp;&nbsp;
+            </td>
+        </tr>  
+  </tbody>
+</table>
+</div>
+</div>
+</div>

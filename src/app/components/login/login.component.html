@@ -1,0 +1,39 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    
+                    <h2 class="text-center">Login to IWCD Portal</h2>
+                <small class="red text-center">{{InvalidLogin}}</small>
+                </div>
+
+                <!-- Creating form fields -->   
+                <form (ngSubmit)="onSubmit()">
+                    <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors['required']" >Email Is Required Field</small>
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Email Must Not Have Special Symbols </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="text" name="email" matInput #name="ngModel" required pattern="^[a-zA-Z0-9_@.-]*$" [(ngModel)]="credentials.email" [class.is-invalid]="name.invalid && name.touched"/>
+                    </mat-form-field>
+
+                    <div *ngIf="Password.errors && (Password.invalid && Password.touched)">
+                        <small class="text-danger" *ngIf="Password.errors['required']" >Password  Is Required Field</small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" name="password" #Password="ngModel" matInput required [(ngModel)]="credentials.password" [class.is-invalid]="name.invalid && name.touched"/>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button style="  background-color: green;color: #fff;">Login</button>
+                        <button type="reset" style="margin-left: 10px; background-color: rgb(85, 9, 66);color: #fff;" mat-raised-button color="accent">Reset</button>
+                    </div>
+                </form>
+                <!-- {{credentials | json}} -->
+            </div>
+        </div>
+    </div>
+</div>

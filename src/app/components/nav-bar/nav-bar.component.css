@@ -1,0 +1,15 @@
+.example-spacer{
+flex: 1 1 auto;
+}
+a{
+   color: #ffff; 
+   text-decoration: none;
+}
+.title{
+    color: #ffff;
+}
+#header {
+    background:#ff0;
+    padding:10px;
+    
+ }

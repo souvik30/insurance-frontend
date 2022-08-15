@@ -1,0 +1,46 @@
+<h1 class="text-center mt">Member List</h1>
+<div class="bootstrap-wrapper">
+    <div class="container mt text-center">
+        <form (submit)="searchByParam()">
+            <input type="text" placeholder="Enter ID Number / Ticket Number / Mobile Number" name="search" [(ngModel)]="searchValue"> &nbsp;
+            <button mat-raised-button color="primary" type="submit">Search</button>
+        </form>
+        <a mat-raised-button color="primary" class="mb mt" routerLink='/dashboard'>Back</a> &nbsp;
+        <div class="row">
+            <table *ngIf="data" id="customers">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>DEPARTMENT</th>
+                        <th>MOBILE</th>
+                        <th>ADDRESS</th>
+                        <th>EMAIL</th>
+                        <th>ID</th>
+                        <th>TICKET NUMBER</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let member of fetchedData.data;let index=index">
+                        <td>{{member['MEMBER NAME']}}</td>
+                        <td>{{member['DEPARTMENT']}}</td>
+                        <td>{{member['MOBILE']}}</td>
+                        <td>{{member['ADDRESS']}}</td>
+                        <td>{{member['E-MAIL ID']}}</td>
+                        <td><b>{{member['ID NUMBER']}}</b></td>
+                        <td><b>{{member['TICKET NUMBER']}}</b></td>
+                        <!-- <td>{{data.member}}</td>
+                        <td>{{data.sportsName}}</td>
+                        <td>{{data.noOfSlots}}</td> -->
+
+                        <td>
+                            <button type="button" mat-raised-button color="warn">Edit</button>&nbsp;&nbsp;
+                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 *ngIf="!data" class="text-center red">{{noDataDisplay}}</h3>
+        </div>
+    </div>
+</div>
