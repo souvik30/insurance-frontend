@@ -7,5 +7,5 @@ import Swal from 'sweetalert2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SportsEventAngularProject';
+  title = 'iwtdPortal';
 }
