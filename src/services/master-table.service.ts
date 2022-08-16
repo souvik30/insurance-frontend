@@ -17,4 +17,7 @@ export class MasterTableService {
   getMasterListbyParams(id:any,mobile:any,ticket:any) {
     return this.http.get(this.URL+'master/'+id+'/'+mobile+'/'+ticket);
   }
+  getDepartment(){
+    return this.http.get(this.URL+"department");
+  }
 }

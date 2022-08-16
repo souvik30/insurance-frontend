@@ -1,0 +1,71 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                   
+                </div>
+                <h1 class="text-center">Register An Admin</h1>
+
+                <!-- Creating form fields -->
+                <form ngNativeValidate  #addplayerform="ngForm" (ngSubmit)="registerAdmin()">
+                    <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors['required']" >Name  Is Required Field</small>
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Name In Alphabates Only </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Admin Name</mat-label>
+                        <input required type="text" name="Player Name" [(ngModel)]="admin.name" matInput required pattern="^[A-Za-z -]+$" #name="ngModel" 
+                        [class.is-invalid]="name.invalid && name.touched" />
+                    </mat-form-field>
+
+                    
+
+                    <div *ngIf="Contact.errors && (Contact.invalid && Contact.touched)">
+                        <small class="text-danger" *ngIf="Contact.errors['required']" >Contact  Is Required Field</small>
+                        <small class="text-danger" *ngIf="Contact.errors['pattern']">Valid Contact No. Required</small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input required type="number" [(ngModel)]="admin.phone" name="Contact Number" matInput required pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" #Contact="ngModel" 
+                        [class.is-invalid]="Contact.invalid && Contact.touched" />
+                    </mat-form-field>
+                    <div *ngIf="email.errors && (email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors['required']" >Email Id Is Required Field</small>
+                        <small class="text-danger" *ngIf="email.errors['pattern']">Please Enter Valid Email Address</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email address</mat-label>
+                        <input required type="email" [(ngModel)]="admin.email" name="Email address" matInput required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel" 
+                        [class.is-invalid]="email.invalid && email.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="password.errors && (password.invalid && password.touched)">
+                        <small class="text-danger" *ngIf="password.errors['required']" >Password Is Required Field</small>
+                        <small class="text-danger" *ngIf="password.errors['pattern']">Password Must be Minimum 8 characters, at least 1 letter and 1 number: </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input required type="text" name="password" [(ngModel)]="admin.password" matInput required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #password="ngModel" 
+                        [class.is-invalid]="password.invalid && password.touched" />
+                    </mat-form-field>
+
+
+
+                    <!-- <ng-select [(ngModel)]="admin.sportsName" name="sportsName">
+                        <ng-option *ngFor="let Event of sportslistarray" [value]="Event.sportsName">{{Event.sportsName}}</ng-option>
+                     </ng-select> -->
+
+
+
+                    
+
+                    <div class="container text-center">
+                        <button [disabled]="addplayerform.invalid" type="submit" style="background-color: rgb(12, 134, 126);color: #fff;" mat-raised-button>Register Admin</button>
+                    </div>
+                </form>
+                <!-- {{credentials | json}} -->
+            </div>
+        </div>
+    </div>
+</div>

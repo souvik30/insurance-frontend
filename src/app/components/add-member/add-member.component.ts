@@ -10,6 +10,7 @@ export class AddMemberComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

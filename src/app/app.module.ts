@@ -31,6 +31,7 @@ import { UpdateMemberComponent } from './components/update-member/update-member.
 import { UpdateDependentComponent } from './components/update-dependent/update-dependent.component';
 import { AddMemberComponent } from './components/add-member/add-member.component';
 import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { AddDependentComponent } from './components/add-dependent/add-dependent.
     UpdateMemberComponent,
     UpdateDependentComponent,
     AddMemberComponent,
-    AddDependentComponent
+    AddDependentComponent,
+    RegisterComponent
     
   ],
   imports: [
