@@ -13,9 +13,9 @@ export class Member {
     address!:string;
     recommender!:string;
     whatsapp!:string;
-    recommende_form_number!:string;
+    recommender_form_number!:string;
     registration_date!:string;
-    'e-mail'!:string;
+    email!:string;
     family_group!:string;
     remarks!:string;
 
