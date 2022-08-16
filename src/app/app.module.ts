@@ -32,6 +32,7 @@ import { UpdateDependentComponent } from './components/update-dependent/update-d
 import { AddMemberComponent } from './components/add-member/add-member.component';
 import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
 import { RegisterComponent } from './components/register/register.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,8 @@ import { RegisterComponent } from './components/register/register.component';
     MatTableModule,
     MatCheckboxModule,
     MatSelectModule,
-    NgSelectModule
+    NgSelectModule,
+    MatDatepickerModule
   ],
   providers: [DatePipe,LoginService,AuthGuard,[{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
