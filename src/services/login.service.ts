@@ -34,7 +34,9 @@ export class LoginService {
 
   // for log out
   logout(){
-    localStorage.removeItem("token")
+    localStorage.removeItem("token"),
+    localStorage.removeItem("name"),
+    localStorage.removeItem("email")
     return true;
   }
 
