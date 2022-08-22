@@ -15,7 +15,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Member Name</mat-label>
-                        <input required type="text" name="Player Name" [(ngModel)]="member.member_name" matInput
+                        <input required type="text" name="Member Name" [(ngModel)]="member.member_name" matInput
                             required pattern="^[A-Za-z -]+$" #name="ngModel"
                             [class.is-invalid]="name.invalid && name.touched" />
                     </mat-form-field>
@@ -33,14 +33,14 @@
 
 
                     <div *ngIf="department.errors && (department.invalid && department.touched)">
-                        <small class="text-danger" *ngIf="department.errors['required']">Sports Is Required
+                        <small class="text-danger" *ngIf="department.errors['required']">Department Is Required
                             Field</small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Select Department</mat-label>
                         <mat-select required [(ngModel)]="member.department" name="department"
                             [class.is-invalid]="department.invalid && department.touched" #department="ngModel">
-                            <mat-option>Select Sports</mat-option>
+                            <mat-option>Select Department</mat-option>
                             <mat-option *ngFor="let department of departmentList" [value]="department['DEPARTMENT']">
                                 {{department['DEPARTMENT']}}
                             </mat-option>
@@ -84,7 +84,7 @@
                     </mat-form-field>
 
                     <div *ngIf="mem_status.errors && (mem_status.invalid && mem_status.touched)">
-                        <small class="text-danger" *ngIf="mem_status.errors['required']">Sports Is Required
+                        <small class="text-danger" *ngIf="mem_status.errors['required']">Status Is Required
                             Field</small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
@@ -139,7 +139,7 @@
                     </mat-form-field>
 
                     <div *ngIf="blood_group.errors && (blood_group.invalid && blood_group.touched)">
-                        <small class="text-danger" *ngIf="blood_group.errors['required']">Sports Is Required
+                        <small class="text-danger" *ngIf="blood_group.errors['required']">Blood Group Is Required
                             Field</small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
@@ -278,32 +278,6 @@
                             required pattern="^[0-9A-Za-z -]+$" #remarks="ngModel"
                             [class.is-invalid]="remarks.invalid && remarks.touched" />
                     </mat-form-field>
-
-
-
-
-
-                   <!-- <div *ngIf="password.errors && (password.invalid && password.touched)">
-                        <small class="text-danger" *ngIf="password.errors['required']" >Password Is Required Field</small>
-                        <small class="text-danger" *ngIf="password.errors['pattern']">Password Must be Minimum 8 characters, at least 1 letter and 1 number: </small>
-                      </div>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input required type="text" name="password" [(ngModel)]="member.password" matInput required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #password="ngModel" 
-                        [class.is-invalid]="password.invalid && password.touched" />
-                    </mat-form-field> -->
-
-
-
-
-
-                    <!-- <ng-select [(ngModel)]="member.department" name="department">
-                        <ng-option *ngFor="let Event of sportslistarray" [value]="Event.department">{{Event.department}}</ng-option>
-                     </ng-select> -->
-
-
-
-
 
                     <div class="container text-center">
                         <button [disabled]="addMemberForm.invalid" type="submit"

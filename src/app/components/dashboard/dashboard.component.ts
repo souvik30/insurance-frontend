@@ -18,15 +18,6 @@ export class DashboardComponent implements OnInit {
     this.userNameDisplay = localStorage.getItem("name");
   }
 
-  // playerlist(){
-  //   this.playerService.playerlist().subscribe(
-  //     resp=>{
-  //       console.log(resp)
-  //     },
-  //     error=>{
-  //       console.log(error)
-  //     }
-  //   )
-  // }
+
 
 }

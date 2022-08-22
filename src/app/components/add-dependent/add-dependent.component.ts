@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DependentTableService } from 'src/services/dependent-table.service';
+import { MasterTableService } from 'src/services/master-table.service';
 
 @Component({
   selector: 'app-add-dependent',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDependentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private memberService:MasterTableService, private router:Router,private dependentService:DependentTableService) { }
 
   ngOnInit(): void {
   }
