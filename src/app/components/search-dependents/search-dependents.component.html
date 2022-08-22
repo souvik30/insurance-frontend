@@ -36,7 +36,7 @@
                 </tbody>
             </table>
             <h3 *ngIf="!data" class="text-center red">{{noDataDisplay}}</h3>
-            <h3 *ngIf="!allowed" class="text-center red">{{noDataDisplay}}</h3>
+            <h3 *ngIf="!allowed" class="text-center red">{{noMemberDataDisplay}}</h3>
             <p></p>
             <form *ngIf="allowed">
                 <button mat-raised-button color="primary" routerLink='/add-dependent' type="submit">Add Dependent</button>

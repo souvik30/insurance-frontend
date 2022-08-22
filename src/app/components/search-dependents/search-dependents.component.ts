@@ -12,6 +12,7 @@ import { MasterTableService } from 'src/services/master-table.service';
 export class SearchDependentsComponent implements OnInit {
   searchValue!: string;
   noDataDisplay='';
+  noMemberDataDisplay='';
   fetchedData:any;
   data=false;
   allowed=false;
@@ -26,14 +27,18 @@ export class SearchDependentsComponent implements OnInit {
   }
   async getMaxAllowed(memberId:string){
     return this.memberService.getMemberByIdAsync(memberId).then((data:any)=>{
-      console.log(data);
-      if(data.data[0]==null){
+      console.log(data.error);
+      if(data.error==true){
         this.memberIsValid=false;
         this.noDataDisplay="Member Not Found!";
+        return 0;
       }
+      else{
+      this.memberIsValid=true;
       return data.data[0]['FAMILY_GROUP'].substr(2,2);
+      }
     }).catch(err=>{
-      console.log(err);
+      //console.log(err);
     })
   }
   async getCurrentDependents(memberId:string){
@@ -65,11 +70,17 @@ export class SearchDependentsComponent implements OnInit {
         {
           this.allowed=false;
           console.log("Not Allowed");
-          this.noDataDisplay ="MAX DEPENDENTS REACHED!"
+          this.noMemberDataDisplay ="MAX DEPENDENTS REACHED!"
         }
         else{
           this.allowed=true;
           console.log("Allowed");
+        }
+        if (!this.memberIsValid)
+        {
+          this.allowed=false;
+          this.noMemberDataDisplay='Member Not Found / Member ID is Invalid!';
+          this.noDataDisplay="";
         }
 
         // this.route.navigate(['/event']);
