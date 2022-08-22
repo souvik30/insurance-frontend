@@ -1,1 +1,318 @@
-<p>update-member works!</p>
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+
+                </div>
+                <h1 class="text-center">Update Member- {{id}}</h1>
+
+                <!-- Creating form fields -->
+                <form ngNativeValidate #addMemberForm="ngForm" (ngSubmit)="updateMember()"  >
+                    <div *ngIf="name.errors && (name.invalid && name.touched)">
+                        <small class="text-danger" *ngIf="name.errors['required']">Name Is Required Field</small>
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Name In Alphabets Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Member Name</mat-label>
+                        <input required type="text" name="Player Name" [(ngModel)]="member['MEMBER_NAME']" matInput
+                            required pattern="^[A-Za-z -]+$" #name="ngModel"
+                            [class.is-invalid]="name.invalid && name.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="ticket.errors && (ticket.invalid && ticket.touched)">
+                        <small class="text-danger" *ngIf="ticket.errors['required']">Name Is Required Field</small>
+                        <small class="text-danger" *ngIf="ticket.errors['pattern']">Name In Alphabets Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Ticket Number</mat-label>
+                        <input required type="text" name="Ticket Number" [(ngModel)]="member['TICKET_NUMBER']" matInput
+                            required pattern="^[0-9 -]+$" #ticket="ngModel"
+                            [class.is-invalid]="ticket.invalid && ticket.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="department.errors && (department.invalid && department.touched)">
+                        <small class="text-danger" *ngIf="department.errors['required']">dDpartment Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Select Department</mat-label>
+                        <mat-select required [(ngModel)]="member['DEPARTMENT']" name="department"
+                            [class.is-invalid]="department.invalid && department.touched" #department="ngModel">
+                            <mat-option>Select department</mat-option>
+                            <mat-option *ngFor="let department of departmentList" [value]="department['DEPARTMENT']">
+                                {{department['DEPARTMENT']}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <div *ngIf="date_of_birth.errors && (date_of_birth.invalid && date_of_birth.touched)">
+                        <small class="text-danger" *ngIf="date_of_birth.errors['required']">D.O.B Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input required type="date" name="date_of_birth" [(ngModel)]="dob" matInput
+                            required pattern="^[0-9 -]+$" (ngModelChange)="calculateAge(member['DATE_OF_BIRTH'])" #date_of_birth="ngModel"
+                            [class.is-invalid]="date_of_birth.invalid && date_of_birth.touched" />
+
+                    </mat-form-field>
+
+                    <div *ngIf="age.errors && (age.invalid && age.touched)">
+                        <small class="text-danger" *ngIf="age.errors['required']">Age Is Required Field</small>
+                        <small class="text-danger" *ngIf="age.errors['pattern']">Age In Number Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Age</mat-label>
+                        <input required type="text" name="age" [(ngModel)]="member['AGE']" matInput
+                            required pattern="^[0-9 -]+$" #age="ngModel"
+                            [class.is-invalid]="age.invalid && age.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="date_of_retirement.errors && (date_of_retirement.invalid && date_of_retirement.touched)">
+                        <small class="text-danger" *ngIf="date_of_retirement.errors['required']">D.O.B Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Date Of Retirement</mat-label>
+                        <input required type="date" name="date_of_retirement" [(ngModel)]="dor" matInput
+                            required pattern="^[0-9 -]+$" #date_of_retirement="ngModel"
+                            [class.is-invalid]="date_of_retirement.invalid && date_of_retirement.touched" />
+
+                    </mat-form-field>
+                    <div *ngIf="status.errors && (status.invalid && status.touched)">
+                        <small class="text-danger" *ngIf="status.errors['required']">status Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Select Status</mat-label>
+                        <mat-select required [(ngModel)]="member['MEM_STATUS']" name="status"
+                            [class.is-invalid]="status.invalid && status.touched" #status="ngModel">
+                            <mat-option>Select Status</mat-option>
+                            <mat-option [value]="'ACTIVE'">
+                                ACTIVE
+                            </mat-option>
+                            <mat-option [value]="'NOT RECM'">
+                                NOT RECM
+                            </mat-option>
+                            <mat-option [value]="'QUIT'">
+                                QUIT
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <div *ngIf="Contact.errors && (Contact.invalid && Contact.touched)">
+                        <small class="text-danger" *ngIf="Contact.errors['required']">Contact Is Required Field</small>
+                        <small class="text-danger" *ngIf="Contact.errors['pattern']">Valid Contact No. Required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input required type="number" [(ngModel)]="member['MOBILE']" name="Contact Number" matInput required
+                            pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" #Contact="ngModel"
+                            [class.is-invalid]="Contact.invalid && Contact.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="sex.errors && (sex.invalid && sex.touched)">
+                        <small class="text-danger" *ngIf="sex.errors['required']">sex Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Select Sex</mat-label>
+                        <mat-select required [(ngModel)]="member['SEX']" name="sex"
+                            [class.is-invalid]="sex.invalid && sex.touched" #sex="ngModel">
+                            <mat-option>Select Sex</mat-option>
+                            <mat-option [value]="'MALE'">
+                                MALE
+                            </mat-option>
+                            <mat-option [value]="'FEMALE'">
+                                FEMALE
+                            </mat-option>
+                            <mat-option [value]="'OTHER'">
+                                OTHER
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div *ngIf="blood_group.errors && (blood_group.invalid && blood_group.touched)">
+                        <small class="text-danger" *ngIf="blood_group.errors['required']">Sports Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Select Blood Group</mat-label>
+                        <mat-select required [(ngModel)]="member['BLOOD_GROUP']" name="blood_group"
+                            [class.is-invalid]="blood_group.invalid && blood_group.touched" #blood_group="ngModel">
+                            <mat-option>Select Blood Group</mat-option>
+                            <mat-option [value]="'A+VE'">
+                                A+VE
+                            </mat-option>
+                            <mat-option [value]="'A-VE'">
+                                A-VE
+                            </mat-option>
+                            <mat-option [value]="'B+VE'">
+                                B+VE
+                            </mat-option>
+                            <mat-option [value]="'B-VE'">
+                                B-VE
+                            </mat-option>
+                            <mat-option [value]="'O+VE'">
+                                O+VE
+                            </mat-option>
+                            <mat-option [value]="'O-VE'">
+                                O-VE
+                            </mat-option>
+                            <mat-option [value]="'AB+VE'">
+                                AB+VE
+                            </mat-option>
+                            <mat-option [value]="'AB-VE'">
+                                AB-VE
+                            </mat-option>
+
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <div *ngIf="organisation.errors && (organisation.invalid && organisation.touched)">
+                        <small class="text-danger" *ngIf="organisation.errors['required']">Organisation Is Required Field</small>
+                        <small class="text-danger" *ngIf="organisation.errors['pattern']">Organisation In Alphabets Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Organisation</mat-label>
+                        <input required type="text" name="organisation" [(ngModel)]="member['ORGANISATION']" matInput
+                            required pattern="^[A-Za-z -]+$" #organisation="ngModel"
+                            [class.is-invalid]="organisation.invalid && organisation.touched" />
+                    </mat-form-field>
+                    
+
+
+                    <div *ngIf="address.errors && (address.invalid && address.touched)">
+                        <small class="text-danger" *ngIf="address.errors['required']">Address Is Required Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input required type="text" name="address" [(ngModel)]="member['ADDRESS']" matInput
+                            required #address="ngModel"
+                            [class.is-invalid]="address.invalid && address.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="recommender.errors && (recommender.invalid && recommender.touched)">
+                        <small class="text-danger" *ngIf="recommender.errors['required']">Recommender Is Required Field</small>
+                        <small class="text-danger" *ngIf="recommender.errors['pattern']">Recommender In Alphabets Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Recommender</mat-label>
+                        <input required type="text" name="recommender" [(ngModel)]="member['RECOMMENDER']" matInput
+                            required pattern="^[A-Za-z -]+$" #recommender="ngModel"
+                            [class.is-invalid]="recommender.invalid && recommender.touched" />
+                    </mat-form-field>
+
+
+                    <div *ngIf="whatsapp.errors && (whatsapp.invalid && whatsapp.touched)">
+                        <small class="text-danger" *ngIf="whatsapp.errors['required']">Whatsapp Is Required Field</small>
+                        <small class="text-danger" *ngIf="whatsapp.errors['pattern']">Valid Whatsapp No. Required</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Whatsapp Number</mat-label>
+                        <input required type="number" [(ngModel)]="member['WHATSAPP']" name="whatsapp Number" matInput required
+                            pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" #whatsapp="ngModel"
+                            [class.is-invalid]="whatsapp.invalid && whatsapp.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="recommender_form_number.errors && (recommender_form_number.invalid && recommender_form_number.touched)">
+                        <small class="text-danger" *ngIf="recommender_form_number.errors['required']">Recommender Form Number Is Required Field</small>
+                        <small class="text-danger" *ngIf="recommender_form_number.errors['pattern']">Recommender Form Number In Number Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Recommender Form Number</mat-label>
+                        <input required type="text" name="recommender_form_number" [(ngModel)]="member['RECOMMENDER_FORM_NUMBER']" matInput
+                            required pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
+                            [class.is-invalid]="recommender_form_number.invalid && recommender_form_number.touched" />
+                    </mat-form-field>
+
+
+
+                     <div *ngIf="email.errors && (email.invalid && email.touched)">
+                        <small class="text-danger" *ngIf="email.errors['required']" >Email Id Is Required Field</small>
+                        <small class="text-danger" *ngIf="email.errors['pattern']">Please Enter Valid Email Address</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email address</mat-label>
+                        <input required type="email" [(ngModel)]="member['EMAIL']" name="Email address" matInput required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel" 
+                        [class.is-invalid]="email.invalid && email.touched" />
+                    </mat-form-field>
+
+                    <div *ngIf="family_group.errors && (family_group.invalid && family_group.touched)">
+                        <small class="text-danger" *ngIf="family_group.errors['required']">Family Group Is Required
+                            Field</small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Select Family Group</mat-label>
+                        <mat-select required [(ngModel)]="member['FAMILY_GROUP']" name="family_group"
+                            [class.is-invalid]="family_group.invalid && family_group.touched" #family_group="ngModel">
+                            <mat-option>Select Family Group</mat-option>
+                            <mat-option [value]="'1+1'">
+                                1+1
+                            </mat-option>
+                            <mat-option [value]="'1+3'">
+                                1+3
+                            </mat-option>
+                            <mat-option [value]="'1+5'">
+                                1+5
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    
+                    <div *ngIf="remarks.errors && (remarks.invalid && remarks.touched)">
+                        <small class="text-danger" *ngIf="remarks.errors['required']">Remarks Is Required Field</small>
+                        <small class="text-danger" *ngIf="remarks.errors['pattern']">Remarks In Number Or Alphabets Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Remarks</mat-label>
+                        <input required type="text" name="remarks" [(ngModel)]="member['REMARKS']" matInput
+                            required pattern="^[0-9A-Za-z -]+$" #remarks="ngModel"
+                            [class.is-invalid]="remarks.invalid && remarks.touched" />
+                    </mat-form-field>
+
+
+
+
+
+                   <!-- <div *ngIf="password.errors && (password.invalid && password.touched)">
+                        <small class="text-danger" *ngIf="password.errors['required']" >Password Is Required Field</small>
+                        <small class="text-danger" *ngIf="password.errors['pattern']">Password Must be Minimum 8 characters, at least 1 letter and 1 number: </small>
+                      </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input required type="text" name="password" [(ngModel)]="member['password" matInput required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" #password="ngModel" 
+                        [class.is-invalid]="password.invalid && password.touched" />
+                    </mat-form-field> -->
+
+
+
+
+
+                    <!-- <ng-select [(ngModel)]="member['department" name="department">
+                        <ng-option *ngFor="let Event of sportslistarray" [value]="Event.department">{{Event.department}}</ng-option>
+                     </ng-select> -->
+
+
+
+
+
+                    <div class="container text-center">
+                        <button [disabled]="addMemberForm.invalid" type="submit"
+                            style="background-color: rgb(12, 134, 126);color: #fff;" mat-raised-button>Update
+                            Member</button>
+                            <button style="margin-left: 10px; background-color: rgb(46, 71, 195);color: #fff;"mat-raised-button color="accent" routerLink="/search-member">Back</button>
+                    </div>
+                </form>
+                <!-- {{credentials | json}} -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,8 +6,9 @@ body {
  #container {
     min-height:100%;
     position:relative;
+
  }
  #body {
     padding:10px;
-    padding-bottom:60px;  /* Height of the footer */
+    padding-bottom:60px; /* Height of the footer */
  }

@@ -7,7 +7,7 @@
         </form>
         <a mat-raised-button color="primary" class="mb mt" routerLink='/dashboard'>Back</a> &nbsp;
         <div class="row">
-            <table *ngIf="data" id="customers">
+            <table width="90%" *ngIf="data" id="customers">
                 <thead>
                     <tr>
                         <th>NAME</th>
@@ -33,9 +33,9 @@
                         <td>{{data.sportsName}}</td>
                         <td>{{data.noOfSlots}}</td> -->
 
-                        <td>
-                            <button type="button" mat-raised-button color="warn">Edit</button>&nbsp;&nbsp;
-                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;&nbsp;
+                        <td style='white-space: nowrap'>
+                            <button type="button" (click)="updateMember(member['ID_NUMBER']);"  mat-raised-button color="warn">Edit</button>&nbsp;&nbsp;
+                            <button type="button" (click)="alertConfirmation(member['ID_NUMBER']);" mat-raised-button color="warn">Delete</button>
                         </td>
                     </tr>
                 </tbody>

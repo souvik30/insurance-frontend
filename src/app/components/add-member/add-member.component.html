@@ -8,10 +8,10 @@
                 <h1 class="text-center">Register new Member</h1>
 
                 <!-- Creating form fields -->
-                <form ngNativeValidate #addplayerform="ngForm" (ngSubmit)="addMember()">
+                <form ngNativeValidate #addMemberForm="ngForm" (ngSubmit)="addMember()">
                     <div *ngIf="name.errors && (name.invalid && name.touched)">
                         <small class="text-danger" *ngIf="name.errors['required']">Name Is Required Field</small>
-                        <small class="text-danger" *ngIf="name.errors['pattern']">Name In Alphabates Only </small>
+                        <small class="text-danger" *ngIf="name.errors['pattern']">Name In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Member Name</mat-label>
@@ -22,7 +22,7 @@
 
                     <div *ngIf="ticket.errors && (ticket.invalid && ticket.touched)">
                         <small class="text-danger" *ngIf="ticket.errors['required']">Name Is Required Field</small>
-                        <small class="text-danger" *ngIf="ticket.errors['pattern']">Name In Alphabates Only </small>
+                        <small class="text-danger" *ngIf="ticket.errors['pattern']">Name In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Ticket Number</mat-label>
@@ -55,7 +55,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Date Of Birth</mat-label>
                         <input required type="date" name="date_of_birth" [(ngModel)]="member.date_of_birth" matInput
-                            required pattern="^[0-9 -]+$" #date_of_birth="ngModel"
+                            required pattern="^[0-9 -]+$" (ngModelChange)="calculateAge(member.date_of_birth)" #date_of_birth="ngModel"
                             [class.is-invalid]="date_of_birth.invalid && date_of_birth.touched" />
 
                     </mat-form-field>
@@ -94,6 +94,12 @@
                             <mat-option>Select Status</mat-option>
                             <mat-option [value]='"ACTIVE"'>
                                 ACTIVE
+                            </mat-option>
+                            <mat-option [value]='"QUIT"'>
+                                QUIT
+                            </mat-option>
+                            <mat-option [value]='"NOT RECM"'>
+                                NOT RECM
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -172,7 +178,7 @@
 
                     <div *ngIf="organisation.errors && (organisation.invalid && organisation.touched)">
                         <small class="text-danger" *ngIf="organisation.errors['required']">Organisation Is Required Field</small>
-                        <small class="text-danger" *ngIf="organisation.errors['pattern']">Organisation In Alphabates Only </small>
+                        <small class="text-danger" *ngIf="organisation.errors['pattern']">Organisation In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Organisation</mat-label>
@@ -195,7 +201,7 @@
 
                     <div *ngIf="recommender.errors && (recommender.invalid && recommender.touched)">
                         <small class="text-danger" *ngIf="recommender.errors['required']">Recommender Is Required Field</small>
-                        <small class="text-danger" *ngIf="recommender.errors['pattern']">Recommender In Alphabates Only </small>
+                        <small class="text-danger" *ngIf="recommender.errors['pattern']">Recommender In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Recommender</mat-label>
@@ -240,7 +246,7 @@
                     </mat-form-field>
 
                     <div *ngIf="family_group.errors && (family_group.invalid && family_group.touched)">
-                        <small class="text-danger" *ngIf="family_group.errors['required']">Sports Is Required
+                        <small class="text-danger" *ngIf="family_group.errors['required']">Family Group Is Required
                             Field</small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
@@ -264,12 +270,12 @@
                     
                     <div *ngIf="remarks.errors && (remarks.invalid && remarks.touched)">
                         <small class="text-danger" *ngIf="remarks.errors['required']">Remarks Is Required Field</small>
-                        <small class="text-danger" *ngIf="remarks.errors['pattern']">Remarks In Alphabates Only </small>
+                        <small class="text-danger" *ngIf="remarks.errors['pattern']">Remarks In Number Or Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Remarks</mat-label>
                         <input required type="text" name="remarks" [(ngModel)]="member.remarks" matInput
-                            required pattern="^[0-9 -]+$" #remarks="ngModel"
+                            required pattern="^[0-9A-Za-z -]+$" #remarks="ngModel"
                             [class.is-invalid]="remarks.invalid && remarks.touched" />
                     </mat-form-field>
 
@@ -300,7 +306,7 @@
 
 
                     <div class="container text-center">
-                        <button [disabled]="addplayerform.invalid" type="submit"
+                        <button [disabled]="addMemberForm.invalid" type="submit"
                             style="background-color: rgb(12, 134, 126);color: #fff;" mat-raised-button>Register
                             Member</button>
                     </div>

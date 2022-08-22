@@ -11,6 +11,7 @@ import { SearchDependentsComponent } from './components/search-dependents/search
 import { AddMemberComponent } from './components/add-member/add-member.component';
 import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UpdateMemberComponent } from './components/update-member/update-member.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,12 @@ const routes: Routes = [
 {
   path:'add-dependent',
   component:AddDependentComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'update-member/:id',
+  component:UpdateMemberComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
 },
