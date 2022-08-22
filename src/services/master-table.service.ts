@@ -42,4 +42,13 @@ export class MasterTableService {
   getMemberById(id: any) {
     return this.http.get(this.URL + "master/" + id);
   }
+  async getMemberByIdAsync(id: any) {
+    try{
+      const response= await this.http.get(this.URL + "master/" + id).toPromise();
+      return response;
+    }catch(err){
+      console.log(err);
+      throw err
+    }
+  }
 }

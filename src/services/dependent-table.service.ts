@@ -16,4 +16,13 @@ export class DependentTableService {
   getDependentsbyParams(id:any,no:any) {
     return this.http.get(this.URL+'dependent/'+id+'/'+no);
   }
+  async getCountofDependents(id:any) {
+    try{
+      const response= await this.http.get(this.URL+'dependent/count/'+id).toPromise();
+      return response;
+    }catch(err){
+      console.log(err);
+      throw err;
+    }
+  }
 }
