@@ -32,20 +32,20 @@ export class UpdateMemberComponent implements OnInit {
       res=>{
         this.Data=res;
         this.departmentList=this.Data.data;
-        console.log(this.departmentList);
+        //console.log(this.departmentList);
         if(this.departmentList=='' || this.departmentList==null) {
           this.noDataFound="No Department Found";
         }
       },
       error=>
       {
-        console.log(error);
+        //console.log(error);
         this.noDataFound="No Data Found";
       }
     )
     this.memberService.getMemberById(this.id).subscribe(
       (resp:any) =>{
-        console.log(resp.data);
+        //console.log(resp.data);
         this.member = resp.data[0];
         this.dob=this.datePipe.transform(this.member['DATE_OF_BIRTH'],'yyyy-MM-dd');
         this.dor=this.datePipe.transform(this.member['DATE_OF_RETIREMENT'],'yyyy-MM-dd');
@@ -55,7 +55,7 @@ export class UpdateMemberComponent implements OnInit {
         this.member['REGISTRATION_DATE']=this.rd;
       },
       error=>{
-        console.log("No Member Found");
+        //console.log("No Member Found");
         this.noDataDisplay ="No Member Found!"
         this.data=false;
       }
@@ -67,19 +67,19 @@ export class UpdateMemberComponent implements OnInit {
       age = Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 3600 * 24)) / 365;
       }
     age=Math.floor(age);
-    console.log({age})
+    //console.log({age})
     this.member['AGE']=age;
     return age;
   }
   updateMember(){
     this.memberService.updateMember(this.id, this.member).subscribe(data =>
       {
-        console.log(data)
+        //console.log(data)
         this.successNotification("Updated","Member with ID: "+this.id+" is Updated Successfully");
         this.router.navigate(['/dashboard']);
         },
         error=>{
-          console.log(error)
+          //console.log(error)
           });
   }
   successNotification(status:string,message:string) {

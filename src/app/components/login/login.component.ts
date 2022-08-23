@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     if((this.credentials.email!='' && this.credentials.password!='' ) && (this.credentials.email!=null && this.credentials.password!=null)){
       // authentication Jwt
-      console.log("form server");
+      //console.log("form server");
       this.loginservice.generateToken(this.credentials.email,this.credentials.password).subscribe(
         (resp:any)=>{
-          console.log(resp);
+          //console.log(resp);
           localStorage.setItem("token",resp.token)
           localStorage.setItem("email",this.credentials.email);
           localStorage.setItem("name",resp.user.name);
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           window.location.href="/dashboard"
         },
         error=>{
-          console.log(error);
+          //console.log(error);
           this.InvalidLogin = "Please Enter Valid Login Id or Password";
 
         }
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
          
     }
     else{
-      console.log("fields are empty");
+      //console.log("fields are empty");
     }
   }
 

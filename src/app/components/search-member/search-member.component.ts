@@ -20,11 +20,11 @@ export class SearchMemberComponent implements OnInit {
   ngOnInit(): void {
   }
   searchByParam(){
-    console.log(this.searchValue);
+    //console.log(this.searchValue);
     this.masterTableService.getMasterListbyParams(this.searchValue,this.searchValue,this.searchValue).subscribe(
       (resp) =>{
         this.fetchedData = resp;
-        console.log(this.fetchedData);
+        //console.log(this.fetchedData);
         this.data=true;
         if(this.fetchedData=='' || this.fetchedData==null){
           this.noDataDisplay ="No Match found!!"
@@ -33,21 +33,21 @@ export class SearchMemberComponent implements OnInit {
         // this.route.navigate(['/event']);
       },
       error=>{
-        console.log("No Member Found");
+        //console.log("No Member Found");
         this.noDataDisplay ="No Member Found!"
         this.data=false;
       }
     )
   }
   deleteMember(memberId:number){
-    console.log(memberId);
+    //console.log(memberId);
     this.masterTableService.deleteMember(memberId).subscribe(
       (resp) => {
-        console.log(resp);
+        //console.log(resp);
         this.searchByParam();
         },
         error=>{
-          console.log(error);
+          //console.log(error);
           this.searchByParam();
           }
     );
@@ -59,7 +59,7 @@ export class SearchMemberComponent implements OnInit {
   alertConfirmation(memberId:number) {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'This process is irreversible.',
+      text: 'This process is irreversible and will also delete all Dependents of this Member',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, go ahead.',

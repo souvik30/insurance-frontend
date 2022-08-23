@@ -22,14 +22,14 @@ export class AddMemberComponent implements OnInit {
       res=>{
         this.Data=res;
         this.departmentList=this.Data.data;
-        console.log(this.departmentList);
+        //console.log(this.departmentList);
         if(this.departmentList=='' || this.departmentList==null) {
           this.noDataFound="No Department Found";
         }
       },
       error=>
       {
-        console.log(error);
+        //console.log(error);
         this.noDataFound="No Data Found";
       }
     )
@@ -37,18 +37,18 @@ export class AddMemberComponent implements OnInit {
   }
   addMember(){
     
-    Object.entries(this.member).forEach(
-      ([key, value]) => console.log(key, value)
-    );
+    // Object.entries(this.member).forEach(
+    //   ([key, value]) => //console.log(key, value)
+    // );
     this.memberService.addMember(this.member).subscribe(
       (resp:any) => {
-        console.log(resp);
+        //console.log(resp);
         const id=resp.id;
         this.successNotification("Added","Member with ID: "+id+" is Added Successfully");
         this.router.navigate(['/dashboard']);
       },
       error => {
-        console.log(error);
+        //console.log(error);
       }
     );
   }
@@ -63,7 +63,7 @@ export class AddMemberComponent implements OnInit {
       age = Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 3600 * 24)) / 365;
       }
     age=Math.floor(age);
-    console.log({age})
+    //console.log({age})
     this.member.age=age;
     return age;
   }

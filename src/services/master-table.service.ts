@@ -47,7 +47,7 @@ export class MasterTableService {
       const response= await this.http.get(this.URL + "master/" + id).toPromise();
       return response;
     }catch(err){
-      console.log(err);
+      //console.log(err);
       throw err
     }
   }

@@ -29,8 +29,8 @@
 
 
                         <td>
-                            <button type="button" mat-raised-button color="warn">Edit</button>&nbsp;&nbsp;
-                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;&nbsp;
+                            <button type="button" mat-raised-button (click)="updateDependent(Dependent['NO']);"color="warn">Edit</button>&nbsp;&nbsp;
+                            <button type="button" mat-raised-button (click)="alertConfirmation(Dependent['NO']);" color="warn">Delete</button>&nbsp;&nbsp;
                         </td>
                     </tr>
                 </tbody>

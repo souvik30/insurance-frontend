@@ -12,6 +12,7 @@ import { AddMemberComponent } from './components/add-member/add-member.component
 import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateMemberComponent } from './components/update-member/update-member.component';
+import { UpdateDependentComponent } from './components/update-dependent/update-dependent.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,12 @@ const routes: Routes = [
 {
   path:'update-member/:id',
   component:UpdateMemberComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'update-dependent/:id',
+  component:UpdateDependentComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
 },

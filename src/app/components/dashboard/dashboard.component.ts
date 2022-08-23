@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     let token = this.loginservice.getToken();
-    console.log("this is my token "+token);
+    //console.log("this is my token "+token);
     this.userNameDisplay = localStorage.getItem("name");
   }
 

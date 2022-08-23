@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
   }
 
   logoutUser(){
-    console.log("logout pressed");
+    //console.log("logout pressed");
     this.loginService.logout()
     location.reload()
   }

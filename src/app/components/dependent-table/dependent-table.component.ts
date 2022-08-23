@@ -17,7 +17,7 @@ export class DependentTableComponent implements OnInit {
       (resp) =>{
         this.dependentTableData = resp;
         this.Data=this.dependentTableData.data;
-        console.log(this.dependentTableData);
+        //console.log(this.dependentTableData);
         if(this.dependentTableData=='' || this.dependentTableData==null){
           this.dependentTableData = 'No Data Found !!';
         }
