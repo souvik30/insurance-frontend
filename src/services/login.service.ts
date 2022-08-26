@@ -20,6 +20,11 @@ export class LoginService {
     sessionStorage.setItem("token",token)
     return true;
   }
+  
+  tokenIsValid(){
+    return this.http.get(this.URL+"verify",{responseType: 'json'})
+
+  }
 
   // to check user is logged in or not
   isLoggedIn(){
