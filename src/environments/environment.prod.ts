@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   URL:"https://iwtd.herokuapp.com/",
-  version:"1.9"
+  version:"2.0"
 };
