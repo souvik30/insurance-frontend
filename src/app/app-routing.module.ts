@@ -13,6 +13,8 @@ import { AddDependentComponent } from './components/add-dependent/add-dependent.
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateMemberComponent } from './components/update-member/update-member.component';
 import { UpdateDependentComponent } from './components/update-dependent/update-dependent.component';
+import { CheckMediclaimSubscriptionComponent } from './components/check-mediclaim-subscription/check-mediclaim-subscription.component';
+import { PastPaymentComponent } from './components/past-payment/past-payment.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,18 @@ const routes: Routes = [
 {
   path:'update-dependent/:id',
   component:UpdateDependentComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'check-mediclaim-membership',
+  component:CheckMediclaimSubscriptionComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'past-payment',
+  component:PastPaymentComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
 },

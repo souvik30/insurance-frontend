@@ -33,6 +33,8 @@ import { AddMemberComponent } from './components/add-member/add-member.component
 import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
 import { RegisterComponent } from './components/register/register.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CheckMediclaimSubscriptionComponent } from './components/check-mediclaim-subscription/check-mediclaim-subscription.component';
+import { PastPaymentComponent } from './components/past-payment/past-payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     UpdateDependentComponent,
     AddMemberComponent,
     AddDependentComponent,
-    RegisterComponent
+    RegisterComponent,
+    CheckMediclaimSubscriptionComponent,
+    PastPaymentComponent
     
   ],
   imports: [
