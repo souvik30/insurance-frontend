@@ -1,4 +1,5 @@
 export class Member {
+    id_number!: number;
     member_name!:string;
     ticket_number!:string;
     department!:string;
