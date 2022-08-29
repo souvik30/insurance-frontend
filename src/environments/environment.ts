@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   URL:"http://10.20.0.103:4000/",
-  version:"2.0"
+  version:"2.1"
 };
 
 /*
