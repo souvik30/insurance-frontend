@@ -1,16 +1,15 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MasterTableService } from 'src/services/master-table.service';
 import { MediclaimService } from 'src/services/mediclaim.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-check-mediclaim-subscription',
-  templateUrl: './check-mediclaim-subscription.component.html',
-  styleUrls: ['./check-mediclaim-subscription.component.css']
+  selector: 'app-past-subscription',
+  templateUrl: './past-subscription.component.html',
+  styleUrls: ['./past-subscription.component.css']
 })
-export class CheckMediclaimSubscriptionComponent implements OnInit {
+export class PastSubscriptionComponent implements OnInit {
 
   searchValue!: string;
   noDataDisplay='';
@@ -22,7 +21,7 @@ export class CheckMediclaimSubscriptionComponent implements OnInit {
   }
   searchByParam(){
     //console.log(this.searchValue);
-    this.mediclaimService.getStatus(this.searchValue).subscribe(
+    this.mediclaimService.getPreviousRecords(this.searchValue).subscribe(
       (resp) =>{
         this.fetchedData = resp;
         console.log(this.fetchedData);
@@ -44,9 +43,21 @@ export class CheckMediclaimSubscriptionComponent implements OnInit {
     //console.log(memberId);
 
   }
-  renewMember(memberID: number)
+  updateMember(memberId: number)
   {
-    this.router.navigate(['/renew-membership', memberID]);    
+    this.router.navigate(['/update-member', memberId]);    
+  }
+
+  printReceipt(paymentID:number){
+    //console.log(paymentID);
+    this.mediclaimService.printPastRecords(paymentID).subscribe(
+      (resp:any) => {
+        console.log(resp);
+        },
+        error=>{
+          console.log(error);
+          }
+          )
   }
   alertConfirmation(memberId:number) {
     Swal.fire({

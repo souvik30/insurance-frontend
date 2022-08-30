@@ -15,6 +15,7 @@ import { UpdateMemberComponent } from './components/update-member/update-member.
 import { UpdateDependentComponent } from './components/update-dependent/update-dependent.component';
 import { CheckMediclaimSubscriptionComponent } from './components/check-mediclaim-subscription/check-mediclaim-subscription.component';
 import { PastPaymentComponent } from './components/past-payment/past-payment.component';
+import { RenewMembershipComponent } from './components/renew-membership/renew-membership.component';
 
 const routes: Routes = [
   {
@@ -96,6 +97,12 @@ const routes: Routes = [
 {
   path:'past-payment',
   component:PastPaymentComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'renew-membership/:id',
+  component:RenewMembershipComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
 },

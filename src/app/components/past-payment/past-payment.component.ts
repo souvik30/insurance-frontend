@@ -46,6 +46,18 @@ export class PastPaymentComponent implements OnInit {
   {
     this.router.navigate(['/update-member', memberId]);    
   }
+
+  printReceipt(paymentID:number){
+    //console.log(paymentID);
+    this.mediclaimService.printPastRecords(paymentID).subscribe(
+      (resp:any) => {
+        console.log(resp);
+        },
+        error=>{
+          console.log(error);
+          }
+          )
+  }
   alertConfirmation(memberId:number) {
     Swal.fire({
       title: 'Are you sure?',
