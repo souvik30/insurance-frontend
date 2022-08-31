@@ -1,4 +1,4 @@
-<h1 class="text-center mt">Check Mediclaim Subscription</h1>
+<h1 class="text-center mt">Check Subscription Of Member</h1>
 <div class="bootstrap-wrapper">
     <div class="container mt text-center">
         <form (submit)="searchByParam()">
@@ -34,7 +34,7 @@
 
 
                         <td style='white-space: nowrap'>
-                            <button type="button" (click)="renewMember(member['ID_NUMBER'])" mat-raised-button color="warn">RENEW</button>
+                            <button type="button" (click)="renewSubscription(member['ID_NUMBER'])" mat-raised-button color="warn">RENEW</button>
                         </td>
                     </tr>
                 </tbody>

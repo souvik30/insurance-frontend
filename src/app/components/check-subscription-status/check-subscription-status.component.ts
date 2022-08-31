@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediclaimService } from 'src/services/mediclaim.service';
+import { SubscriptionService } from 'src/services/subscription.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,13 +16,13 @@ export class CheckSubscriptionStatusComponent implements OnInit {
   noDataDisplay='';
   fetchedData:any;
   data=false;
-  constructor(private mediclaimService:MediclaimService,private router:Router,public datepipe: DatePipe) { }
+  constructor(private subscriptionService:SubscriptionService,private router:Router,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
   }
   searchByParam(){
     //console.log(this.searchValue);
-    this.mediclaimService.getStatus(this.searchValue).subscribe(
+    this.subscriptionService.getStatus(this.searchValue).subscribe(
       (resp) =>{
         this.fetchedData = resp;
         console.log(this.fetchedData);
@@ -43,9 +44,9 @@ export class CheckSubscriptionStatusComponent implements OnInit {
     //console.log(memberId);
 
   }
-  renewMember(memberID: number)
+  renewSubscription(memberID: number)
   {
-    this.router.navigate(['/renew-membership', memberID]);    
+    this.router.navigate(['/renew-subscription', memberID]);    
   }
   alertConfirmation(memberId:number) {
     Swal.fire({

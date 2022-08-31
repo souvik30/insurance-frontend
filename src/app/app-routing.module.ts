@@ -18,6 +18,7 @@ import { PastPaymentComponent } from './components/past-payment/past-payment.com
 import { RenewMembershipComponent } from './components/renew-membership/renew-membership.component';
 import { PastSubscriptionComponent } from './components/past-subscription/past-subscription.component';
 import { CheckSubscriptionStatusComponent } from './components/check-subscription-status/check-subscription-status.component';
+import { RenewSubscriptionComponent } from './components/renew-subscription/renew-subscription.component';
 
 const routes: Routes = [
   {
@@ -117,6 +118,12 @@ const routes: Routes = [
 {
   path:'check-subscription-status',
   component:CheckSubscriptionStatusComponent,
+  pathMatch:'full',
+  canActivate:[AuthGuard]
+},
+{
+  path:'renew-subscription/:id',
+  component:RenewSubscriptionComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
 },

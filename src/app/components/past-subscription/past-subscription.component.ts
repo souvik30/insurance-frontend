@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediclaimService } from 'src/services/mediclaim.service';
+import { SubscriptionService } from 'src/services/subscription.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,13 +16,13 @@ export class PastSubscriptionComponent implements OnInit {
   noDataDisplay='';
   fetchedData:any;
   data=false;
-  constructor(private mediclaimService:MediclaimService,private router:Router,public datepipe: DatePipe) { }
+  constructor(private subscriptionService:SubscriptionService,private router:Router,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
   }
   searchByParam(){
     //console.log(this.searchValue);
-    this.mediclaimService.getPreviousRecords(this.searchValue).subscribe(
+    this.subscriptionService.getPreviousRecords(this.searchValue).subscribe(
       (resp) =>{
         this.fetchedData = resp;
         console.log(this.fetchedData);
@@ -43,14 +44,11 @@ export class PastSubscriptionComponent implements OnInit {
     //console.log(memberId);
 
   }
-  updateMember(memberId: number)
-  {
-    this.router.navigate(['/update-member', memberId]);    
-  }
+
 
   printReceipt(paymentID:number){
     //console.log(paymentID);
-    this.mediclaimService.printPastRecords(paymentID).subscribe(
+    this.subscriptionService.printPastRecords(paymentID).subscribe(
       (resp:any) => {
         console.log(resp);
         },

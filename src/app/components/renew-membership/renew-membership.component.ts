@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Payment } from 'src/app/models/payment.model';
 import { MediclaimService } from 'src/services/mediclaim.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-renew-membership',
@@ -35,11 +36,15 @@ export class RenewMembershipComponent implements OnInit {
     this.mediclaimService.renewMembership(this.payment,this.id).subscribe(
       res => {
         console.log(res);
-        //this.router.navigate(['/dashboard']);
+        this.successNotification("Renewed Subscription","Member with ID: "+this.id+" is Renewed Successfully");
+        this.router.navigate(['/dashboard']);
         },
         err => {
           console.log(err);
           });       
+  }
+  successNotification(status:string,message:string) {
+    Swal.fire(status, message, 'success');
   }
 
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Payment } from 'src/app/models/payment.model';
 import { MediclaimService } from 'src/services/mediclaim.service';
+import { SubscriptionService } from 'src/services/subscription.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-renew-subscription',
@@ -11,7 +13,7 @@ import { MediclaimService } from 'src/services/mediclaim.service';
 })
 export class RenewSubscriptionComponent implements OnInit {
 
-  constructor(private mediclaimService:MediclaimService ,private router:Router, private act_router:ActivatedRoute,private datePipe:DatePipe) { }
+  constructor(private subscriptionService:SubscriptionService ,private router:Router, private act_router:ActivatedRoute,private datePipe:DatePipe) { }
 
   id=this.act_router.snapshot.params['id'];
   expiry_year=((new Date()).getFullYear()+1).toString();
@@ -30,16 +32,20 @@ export class RenewSubscriptionComponent implements OnInit {
     
     
   }
-  renewMembership(){
+  renewSubscription(){
     console.log(this.payment);
-    this.mediclaimService.renewMembership(this.payment,this.id).subscribe(
+    this.subscriptionService.renewSubscription(this.payment,this.id).subscribe(
       res => {
         console.log(res);
-        //this.router.navigate(['/dashboard']);
+        this.successNotification("Renewed Subscription","Member with ID: "+this.id+" is Renewed Successfully");
+        this.router.navigate(['/dashboard']);
         },
         err => {
           console.log(err);
           });       
+  }
+  successNotification(status:string,message:string) {
+    Swal.fire(status, message, 'success');
   }
 
 }
