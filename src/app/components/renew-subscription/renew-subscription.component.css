@@ -1,0 +1,12 @@
+.full-width{
+    width:100%;
+}
+.text-danger{
+     color: red;
+}
+.mt-zero{
+    margin-top: 0;
+}
+button:disabled {
+    background-color: rgb(42, 62, 59);
+ }

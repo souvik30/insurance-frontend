@@ -38,6 +38,7 @@ import { PastPaymentComponent } from './components/past-payment/past-payment.com
 import { RenewMembershipComponent } from './components/renew-membership/renew-membership.component';
 import { RenewSubscriptionComponent } from './components/renew-subscription/renew-subscription.component';
 import { PastSubscriptionComponent } from './components/past-subscription/past-subscription.component';
+import { CheckSubscriptionStatusComponent } from './components/check-subscription-status/check-subscription-status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { PastSubscriptionComponent } from './components/past-subscription/past-s
     PastPaymentComponent,
     RenewMembershipComponent,
     RenewSubscriptionComponent,
-    PastSubscriptionComponent
+    PastSubscriptionComponent,
+    CheckSubscriptionStatusComponent
     
   ],
   imports: [

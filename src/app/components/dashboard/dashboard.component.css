@@ -2,3 +2,9 @@
     margin-left: 30px;
 }
 
+
+.bootstrap-wrapper
+{
+    background: rgb(29,3,3);
+    background: linear-gradient(339deg, rgba(29,3,3,0.9924928467480743) 0%, rgba(255,20,0,1) 100%);
+}
