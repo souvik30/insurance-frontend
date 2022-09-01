@@ -6,7 +6,6 @@ export class Memberu {
     'DATE_OF_BIRTH'!:Date;
     'AGE'!:string;
     'DATE_OF_RETIREMENT'!:string;
-    'MEM_STATUS'!:string;
     'MOBILE'!:string;
     'SEX'!:string;
     'BLOOD_GROUP'!:string;

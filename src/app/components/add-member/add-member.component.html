@@ -95,26 +95,7 @@
 
                     </mat-form-field>
 
-                    <div *ngIf="mem_status.errors && (mem_status.invalid && mem_status.touched)">
-                        <small class="text-danger" *ngIf="mem_status.errors['required']">Status Is Required
-                            Field</small>
-                    </div>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Select Status</mat-label>
-                        <mat-select required [(ngModel)]="member.mem_status" name="department"
-                            [class.is-invalid]="mem_status.invalid && mem_status.touched" #mem_status="ngModel">
-                            <mat-option>Select Status</mat-option>
-                            <mat-option [value]='"ACTIVE"'>
-                                ACTIVE
-                            </mat-option>
-                            <mat-option [value]='"QUIT"'>
-                                QUIT
-                            </mat-option>
-                            <mat-option [value]='"NOT RECM"'>
-                                NOT RECM
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+
 
 
                     <div *ngIf="Contact.errors && (Contact.invalid && Contact.touched)">
@@ -212,14 +193,24 @@
                     </mat-form-field>
 
                     <div *ngIf="recommender.errors && (recommender.invalid && recommender.touched)">
-                        <small class="text-danger" *ngIf="recommender.errors['required']">Recommender Is Required Field</small>
-                        <small class="text-danger" *ngIf="recommender.errors['pattern']">Recommender In Alphabets Only </small>
+                        <small class="text-danger" *ngIf="recommender.errors['required']">Recommender Name Is Required Field</small>
+                        <small class="text-danger" *ngIf="recommender.errors['pattern']">Recommender Name In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Recommender</mat-label>
+                        <mat-label>Recommender Name</mat-label>
                         <input required type="text" name="recommender" [(ngModel)]="member.recommender" matInput
                             required pattern="^[A-Za-z -]+$" #recommender="ngModel"
                             [class.is-invalid]="recommender.invalid && recommender.touched" />
+                    </mat-form-field>
+                    <div *ngIf="recommender_form_number.errors && (recommender_form_number.invalid && recommender_form_number.touched)">
+                        <small class="text-danger" *ngIf="recommender_form_number.errors['required']">Recommender ID Is Required Field</small>
+                        <small class="text-danger" *ngIf="recommender_form_number.errors['pattern']">Recommender ID In Number Only </small>
+                    </div>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Recommender ID</mat-label>
+                        <input required type="text" name="recommender_form_number" [(ngModel)]="member.recommender_form_number" matInput
+                            required pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
+                            [class.is-invalid]="recommender_form_number.invalid && recommender_form_number.touched" />
                     </mat-form-field>
 
 
@@ -234,16 +225,7 @@
                             [class.is-invalid]="whatsapp.invalid && whatsapp.touched" />
                     </mat-form-field>
 
-                    <div *ngIf="recommender_form_number.errors && (recommender_form_number.invalid && recommender_form_number.touched)">
-                        <small class="text-danger" *ngIf="recommender_form_number.errors['required']">Recommender Form Number Is Required Field</small>
-                        <small class="text-danger" *ngIf="recommender_form_number.errors['pattern']">Recommender Form Number In Number Only </small>
-                    </div>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Recommender Form Number</mat-label>
-                        <input required type="text" name="recommender_form_number" [(ngModel)]="member.recommender_form_number" matInput
-                            required pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
-                            [class.is-invalid]="recommender_form_number.invalid && recommender_form_number.touched" />
-                    </mat-form-field>
+
 
 
 

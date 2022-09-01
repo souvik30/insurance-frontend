@@ -84,7 +84,7 @@ export class SearchDependentsComponent implements OnInit {
           this.noDataDisplay="";
         }
 
-        // this.route.navigate(['/event']);
+        
       },
       error=>{
         //console.log("No Dependent Found");

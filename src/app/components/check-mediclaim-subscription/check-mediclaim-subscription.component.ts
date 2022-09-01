@@ -31,7 +31,6 @@ export class CheckMediclaimSubscriptionComponent implements OnInit {
           this.noDataDisplay ="No Match found!!"
           this.data=false;
         }
-        // this.route.navigate(['/event']);
       },
       error=>{
         //console.log("No Member Found");

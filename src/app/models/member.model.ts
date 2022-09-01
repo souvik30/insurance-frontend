@@ -6,7 +6,6 @@ export class Member {
     date_of_birth!:string;
     age!:string;
     date_of_retirement!:string;
-    mem_status!:string;
     mobile!:string;
     sex!:string;
     blood_group!:string;
