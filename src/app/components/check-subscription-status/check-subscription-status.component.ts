@@ -27,7 +27,7 @@ export class CheckSubscriptionStatusComponent implements OnInit {
         this.fetchedData = resp;
         console.log(this.fetchedData);
         this.data=true;
-        if(this.fetchedData=='' || this.fetchedData==null){
+        if(this.fetchedData=='' || this.fetchedData==null || this.fetchedData.data.length<1){
           this.noDataDisplay ="No Match found!!"
           this.data=false;
         }
@@ -40,31 +40,11 @@ export class CheckSubscriptionStatusComponent implements OnInit {
       }
     )
   }
-  deleteMember(memberId:number){
-    //console.log(memberId);
-
-  }
   renewSubscription(memberID: number)
   {
     this.router.navigate(['/renew-subscription', memberID]);    
   }
-  alertConfirmation(memberId:number) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This process is irreversible and will also delete all Dependents of this Member',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Removed!', 'Member removed successfully.', 'success');
-        this.deleteMember(memberId);
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled', 'Member is still in our database.)', 'error');
-      }
-    });
-  }
+
 
 }
 
