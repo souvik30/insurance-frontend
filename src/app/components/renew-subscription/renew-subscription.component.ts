@@ -21,12 +21,11 @@ export class RenewSubscriptionComponent implements OnInit {
   dateFormat=""
   mmdd="-05-12";
   expiry_date=this.expiry_year.concat(this.mmdd);
-  issue_date:any;
+  issue_date='';
   payment= new Payment();
 
   ngOnInit(): void {
-    this.issue_date=this.datePipe.transform(new Date().toLocaleDateString(), 'yyyy-MM-dd')
-    this.payment['ID_NUMBER']=this.id;
+    this.issue_date=this.issue_date.concat(((new Date()).getFullYear()).toString(),"-",((new Date()).getMonth()+1).toString(),"-",((new Date()).getDate()).toString());    this.payment['ID_NUMBER']=this.id;
     this.payment['EXPIRY_DATE']=this.expiry_date;
     this.payment['ISSUE_DATE']=this.issue_date;
     
