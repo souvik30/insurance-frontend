@@ -7,7 +7,6 @@ export class Dependent {
     'AGE'!:string;
     'BLOOD_GROUP'!:string;
     'SEX'!:string;
-    'STATUS'!:string;
     constructor(){}
 
 }

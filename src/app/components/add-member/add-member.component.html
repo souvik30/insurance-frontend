@@ -198,8 +198,8 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Recommender Name</mat-label>
-                        <input required type="text" name="recommender" [(ngModel)]="member.recommender" matInput
-                            required pattern="^[A-Za-z -]+$" #recommender="ngModel"
+                        <input type="text" name="recommender" [(ngModel)]="member.recommender" matInput
+                             pattern="^[A-Za-z -]+$" #recommender="ngModel"
                             [class.is-invalid]="recommender.invalid && recommender.touched" />
                     </mat-form-field>
                     <div *ngIf="recommender_form_number.errors && (recommender_form_number.invalid && recommender_form_number.touched)">
@@ -208,8 +208,8 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Recommender ID</mat-label>
-                        <input required type="text" name="recommender_form_number" [(ngModel)]="member.recommender_form_number" matInput
-                            required pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
+                        <input type="text" name="recommender_form_number" [(ngModel)]="member.recommender_form_number" matInput
+                            pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
                             [class.is-invalid]="recommender_form_number.invalid && recommender_form_number.touched" />
                     </mat-form-field>
 
