@@ -6,11 +6,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  URL=environment.URL;
+  URL="http://localhost:8084/api/auth/";
   constructor(private http:HttpClient) { }
 
-  generateToken(email:string,password:string){
-    return this.http.post(this.URL+"login",{email,password},{responseType: 'json'});
+  generateToken(userid:string,password:string){
+    return this.http.post(this.URL+"login",{userid,password},{responseType: 'json'});
   }
 
   //for login user
@@ -22,7 +22,7 @@ export class LoginService {
   }
   
   tokenIsValid(){
-    return this.http.get(this.URL+"verify",{responseType: 'json'})
+    return this.http.get(this.URL+"validate")
 
   }
 

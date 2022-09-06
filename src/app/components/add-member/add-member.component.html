@@ -9,14 +9,14 @@
                 <h1 class="text-center">Register new Member</h1>
 
                 <!-- Creating form fields -->
-                <form ngNativeValidate #addMemberForm="ngForm" (ngSubmit)="addMember()">
+                <form  ngNativeValidate #addMemberForm="ngForm" (ngSubmit)="addMember()">
                     <div *ngIf="id_number.errors && (id_number.invalid && id_number.touched)">
                         <small class="text-danger" *ngIf="id_number.errors['required']">ID NUMBER Is Required Field</small>
                         <small class="text-danger" *ngIf="id_number.errors['pattern']">ID NUMBER In Alphabets Only </small>
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Member ID NUMBER</mat-label>
-                        <input required type="text" name="id_number" [(ngModel)]="member.id_number" matInput
+                        <input required type="text" name="id_number" [(ngModel)]="member.id_NUMBER" matInput
                             required pattern="^[0-9 ]+$" #id_number="ngModel"
                             [class.is-invalid]="id_number.invalid && id_number.touched" />
                     </mat-form-field>
@@ -27,7 +27,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Member Name</mat-label>
-                        <input required type="text" name="Member Name" [(ngModel)]="member.member_name" matInput
+                        <input required type="text" name="Member Name" [(ngModel)]="member.member_NAME" matInput
                             required pattern="^[A-Za-z -]+$" #name="ngModel"
                             [class.is-invalid]="name.invalid && name.touched" />
                     </mat-form-field>
@@ -38,7 +38,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Ticket Number</mat-label>
-                        <input required type="text" name="Ticket Number" [(ngModel)]="member.ticket_number" matInput
+                        <input required type="text" name="Ticket Number" [(ngModel)]="member.ticket_NUMBER" matInput
                             required pattern="^[0-9 -]+$" #ticket="ngModel"
                             [class.is-invalid]="ticket.invalid && ticket.touched" />
                     </mat-form-field>
@@ -53,8 +53,8 @@
                         <mat-select required [(ngModel)]="member.department" name="department"
                             [class.is-invalid]="department.invalid && department.touched" #department="ngModel">
                             <mat-option>Select Department</mat-option>
-                            <mat-option *ngFor="let department of departmentList" [value]="department['DEPARTMENT']">
-                                {{department['DEPARTMENT']}}
+                            <mat-option *ngFor="let department of departmentList" [value]="department['department']">
+                                {{department['department']}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -66,8 +66,8 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Date Of Birth</mat-label>
-                        <input required type="date" name="date_of_birth" [(ngModel)]="member.date_of_birth" matInput
-                            required pattern="^[0-9 -]+$" (ngModelChange)="calculateAge(member.date_of_birth)" #date_of_birth="ngModel"
+                        <input required type="date" name="date_of_birth" [(ngModel)]="member.date_OF_BIRTH" matInput
+                            required pattern="^[0-9 -]+$" (ngModelChange)="calculateAge(member.date_OF_BIRTH)" #date_of_birth="ngModel"
                             [class.is-invalid]="date_of_birth.invalid && date_of_birth.touched" />
 
                     </mat-form-field>
@@ -89,7 +89,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Date Of Retirement</mat-label>
-                        <input required type="date" name="date_of_retirement" [(ngModel)]="member.date_of_retirement" matInput
+                        <input required type="date" name="date_of_retirement" [(ngModel)]="member.date_OF_RETIREMENT" matInput
                             required pattern="^[0-9 -]+$" #date_of_retirement="ngModel"
                             [class.is-invalid]="date_of_retirement.invalid && date_of_retirement.touched" />
 
@@ -137,7 +137,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Select Blood Group</mat-label>
-                        <mat-select required [(ngModel)]="member.blood_group" name="blood_group"
+                        <mat-select required [(ngModel)]="member.blood_GROUP" name="blood_group"
                             [class.is-invalid]="blood_group.invalid && blood_group.touched" #blood_group="ngModel">
                             <mat-option>Select Blood Group</mat-option>
                             <mat-option [value]="'A+VE'">
@@ -208,7 +208,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Recommender ID</mat-label>
-                        <input type="text" name="recommender_form_number" [(ngModel)]="member.recommender_form_number" matInput
+                        <input type="text" name="recommender_form_number" [(ngModel)]="member.recommender_FORM_NUMBER" matInput
                             pattern="^[0-9 -]+$" #recommender_form_number="ngModel"
                             [class.is-invalid]="recommender_form_number.invalid && recommender_form_number.touched" />
                     </mat-form-field>
@@ -245,7 +245,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Select Family Group</mat-label>
-                        <mat-select required [(ngModel)]="member.family_group" name="family_group"
+                        <mat-select required [(ngModel)]="member.family_GROUP" name="family_group"
                             [class.is-invalid]="family_group.invalid && family_group.touched" #family_group="ngModel">
                             <mat-option>Select Family Group</mat-option>
                             <mat-option [value]="'1+1'">

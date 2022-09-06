@@ -21,7 +21,7 @@ export class AddMemberComponent implements OnInit {
     this.memberService.getDepartment().subscribe(
       res=>{
         this.Data=res;
-        this.departmentList=this.Data.data;
+        this.departmentList=this.Data;
         //console.log(this.departmentList);
         if(this.departmentList=='' || this.departmentList==null) {
           this.noDataFound="No Department Found";
@@ -44,11 +44,11 @@ export class AddMemberComponent implements OnInit {
       (resp:any) => {
         //console.log(resp);
         //const id=resp.id;
-        this.successNotification("Added","Member with ID: "+this.member.id_number+" is Added Successfully");
+        this.successNotification("Added","Member with ID: "+this.member.id_NUMBER+" is Added Successfully");
         this.router.navigate(['/dashboard']);
       },
       error => {
-        this.failedNotification("Failed","Member with ID: "+this.member.id_number+" Was not Added");
+        this.failedNotification("Failed","Member with ID: "+this.member.id_NUMBER+" Was not Added");
         //console.log(error);
       }
     );

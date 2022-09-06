@@ -9,9 +9,10 @@
     padding: 8px;
   }
   
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  #customers tr:nth-child(even){background-color: #b2e1e960;}
+  #customers tr:nth-child(odd){background-color: #8febfa94;}
   
-  #customers tr:hover {background-color: #ddd;}
+  #customers tr:hover {background-color: rgba(221, 221, 221, 0.456);}
   
   #customers th {
     padding-top: 12px;

@@ -22,9 +22,9 @@ export class SearchMemberComponent implements OnInit {
   searchByParam(){
     //console.log(this.searchValue);
     this.masterTableService.getMasterListbyParams(this.searchValue,this.searchValue,this.searchValue).subscribe(
-      (resp) =>{
+      (resp:any) =>{
         this.fetchedData = resp;
-        //console.log(this.fetchedData);
+        console.log(this.fetchedData);
         this.data=true;
         if(this.fetchedData=='' || this.fetchedData==null){
           this.noDataDisplay ="No Match found!!"

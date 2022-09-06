@@ -1,13 +1,13 @@
 export class Payment {
-    'ID_NUMBER'!:number;
-    'MODE_OF_PAYMENT'!: string;
-    'REFERENCE_NUMBER'!:string;
-    'ISSUE_DATE'!:string;
-    'EXPIRY_DATE'!:string;
-    'BANK'!:string;
-    'BRANCH'!:string;
-    'AMOUNT'!:number;
-    'REMARKS'!:string;
+    'id_NUMBER'!:number;
+    'mode_OF_PAYMENT'!: string;
+    'reference_NUMBER'!:string;
+    'issue_DATE'!:Date;
+    'expiry_DATE'!:Date;
+    'bank'!:string;
+    'branch'!:string;
+    'amount'!:number;
+    'remarks'!:string;
 
     constructor() {}
 }

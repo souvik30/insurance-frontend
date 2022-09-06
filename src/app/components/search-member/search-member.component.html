@@ -21,14 +21,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let member of fetchedData.data;let index=index">
-                        <td>{{member['MEMBER_NAME']}}</td>
-                        <td>{{member['DEPARTMENT']}}</td>
-                        <td>{{member['MOBILE']}}</td>
-                        <td>{{member['ADDRESS']}}</td>
-                        <td>{{member['EMAIL']}}</td>
-                        <td><b>{{member['ID_NUMBER']}}</b></td>
-                        <td><b>{{member['TICKET_NUMBER']}}</b></td>
+                    <tr *ngFor="let member of fetchedData;let index=index">
+                        <td>{{member['member_NAME']}}</td>
+                        <td>{{member['department']}}</td>
+                        <td>{{member['mobile']}}</td>
+                        <td>{{member['address']}}</td>
+                        <td>{{member['email']}}</td>
+                        <td><b>{{member['id_NUMBER']}}</b></td>
+                        <td><b>{{member['ticket_NUMBER']}}</b></td>
 
 
                         <td style='white-space: nowrap'>

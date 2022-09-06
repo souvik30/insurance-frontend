@@ -7,7 +7,8 @@
 
                 </div>
                 <br>
-                <h1 class="text-center">Renew Subscription Of Member with ID- IWTD/{{id}}</h1>
+                <h1 class="text-center">Renew Subscription Of Member with ID- 
+                    {{id}}</h1>
 
 
                 <!-- Creating form fields -->
@@ -17,9 +18,9 @@
                         <small class="text-danger" *ngIf="mode_of_payment.errors['required']">Mode Of Payment Is Required
                             Field</small>
                     </div>
-                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-form-field class="full-width bg" appearance="outline">
                         <mat-label>Select Mode Of Payment</mat-label>
-                        <mat-select required [(ngModel)]="payment['MODE_OF_PAYMENT']" name="mode_of_payment"
+                        <mat-select required [(ngModel)]="payment['mode_OF_PAYMENT']" name="mode_of_payment"
                             [class.is-invalid]="mode_of_payment.invalid && mode_of_payment.touched" #mode_of_payment="ngModel">
                             <mat-option>Select Mode Of Payment</mat-option>
                             <mat-option [value]='"CHEQUE"'>
@@ -43,9 +44,9 @@
                         <small class="text-danger" *ngIf="reference_number.errors['required']">REFERENCE NUMBER Is Required Field</small>
                         <small class="text-danger" *ngIf="reference_number.errors['pattern']">REFERENCE NUMBER In Alphabets Only </small>
                     </div>
-                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-form-field  class="full-width" appearance="outline">
                         <mat-label>Reference Number</mat-label>
-                        <input required type="text" name="reference_number" [(ngModel)]="payment['REFERENCE_NUMBER']" matInput
+                        <input  required type="text" name="reference_number" [(ngModel)]="payment['reference_NUMBER']" matInput
                             required pattern="^[A-Za-z0-9 -]+$" #reference_number="ngModel"
                             [class.is-invalid]="reference_number.invalid && reference_number.touched" />
                     </mat-form-field>
@@ -57,7 +58,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Bank</mat-label>
-                        <input required type="text" name="bank" [(ngModel)]="payment['BANK']" matInput
+                        <input required type="text" name="bank" [(ngModel)]="payment['bank']" matInput
                             required pattern="^[A-Za-z0-9 -]+$" #bank="ngModel"
                             [class.is-invalid]="bank.invalid && bank.touched" />
                     </mat-form-field>
@@ -69,7 +70,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Branch</mat-label>
-                        <input required type="text" name="branch" [(ngModel)]="payment['BRANCH']" matInput
+                        <input required type="text" name="branch" [(ngModel)]="payment['branch']" matInput
                             required pattern="^[A-Za-z0-9 -]+$" #branch="ngModel"
                             [class.is-invalid]="branch.invalid && branch.touched" />
                     </mat-form-field>
@@ -80,7 +81,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Amount</mat-label>
-                        <input required type="text" name="amount" [(ngModel)]="payment['AMOUNT']" matInput
+                        <input required type="text" name="amount" [(ngModel)]="payment['amount']" matInput
                             required pattern="^[A-Za-z0-9 -]+$" #amount="ngModel"
                             [class.is-invalid]="amount.invalid && amount.touched" />
                     </mat-form-field>
@@ -91,7 +92,7 @@
                     </div>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Remarks</mat-label>
-                        <input required type="text" name="remarks" [(ngModel)]="payment['REMARKS']" matInput
+                        <input required type="text" name="remarks" [(ngModel)]="payment['remarks']" matInput
                             required pattern="^[A-Za-z0-9 -]+$" #remarks="ngModel"
                             [class.is-invalid]="remarks.invalid && remarks.touched" />
                     </mat-form-field>

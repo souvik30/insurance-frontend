@@ -22,16 +22,16 @@ export class MasterTableService {
   constructor(private http: HttpClient) {}
 
   getMasterList() {
-    return this.http.get(this.URL + "master");
+    return this.http.get(this.URL + 'master/');
   }
   getMasterListbyParams(id: any, mobile: any, ticket: any) {
     return this.http.get(this.URL + 'master/' + id + '/' + mobile + '/' + ticket);
   }
   getDepartment() {
-    return this.http.get(this.URL + "department");
+    return this.http.get(this.URL + "master/department");
   }
   addMember(member: Member) {
-    return this.http.post(this.URL + "master", member);
+    return this.http.post(this.URL + "master/", member);
   }
   deleteMember(id: any) {
     return this.http.delete(this.URL + "master/" + id);

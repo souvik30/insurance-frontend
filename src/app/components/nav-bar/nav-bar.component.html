@@ -3,7 +3,7 @@
 
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" routerLink="/dashboard">IWTD</a>
+    <a class="navbar-brand" routerLink="/dashboard">insurance</a>
         <a class="navbar-brand" style="color:#1eae9d  ;" *ngIf="loggedIn">Welcome {{userNameDisplay}}</a>
         <!-- <button class="navbar-toggler d-lg-none" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation"> -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,12 +14,6 @@
       <ul class="navbar-nav mr-auto">
         <li  class="nav-item">
           <a *ngIf="loggedIn"  class="nav-link" routerLink="/master-table">Master List</a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="loggedIn" class="nav-link" routerLink="/dependent-table" >Dependent List</a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="loggedIn" class="nav-link" routerLink="/register-admin" >Register Admin</a>
         </li>
         <li class="nav-item">
           <a *ngIf="!loggedIn" class="nav-link" router="/login"> Login</a>

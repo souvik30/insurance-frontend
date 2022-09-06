@@ -22,19 +22,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let member of fetchedData.data;let index=index">
-                        <td>{{member['MEMBER_NAME']}}</td>
-                        <td>{{member['MOBILE']}}</td>
-                        <td>{{member['EMAIL']}}</td>
-                        <td>{{this.datepipe.transform(member['issue_date'], 'dd/MM/yyyy') }}</td>
-                        <td>{{member['amount']}}</td>
-                        <td><b>{{member['STATUS']}}</b></td>
-                        <td><b>{{member['ID_NUMBER']}}</b></td>
-                        <td><b>{{member['TICKET_NUMBER']}}</b></td>
+                    <tr>
+                        <td>{{fetchedData['member_NAME']}}</td>
+                        <td>{{fetchedData['mobile']}}</td>
+                        <td>{{fetchedData['email']}}</td>
+                        <td>{{this.datepipe.transform(fetchedData['issue_DATE'], 'dd/MM/yyyy') }}</td>
+                        <td>{{fetchedData['amount']}}</td>
+                        <td><b>{{fetchedData['status']}}</b></td>
+                        <td><b>{{fetchedData['id_NUMBER']}}</b></td>
+                        <td><b>{{fetchedData['ticket_NUMBER']}}</b></td>
 
 
                         <td style='white-space: nowrap'>
-                            <button type="button" (click)="renewSubscription(member['ID_NUMBER'])" mat-raised-button color="warn">RENEW</button>
+                            <button type="button" (click)="renewSubscription(fetchedData['id_NUMBER'])" mat-raised-button color="warn">RENEW</button>
                         </td>
                     </tr>
                 </tbody>

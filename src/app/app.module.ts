@@ -23,19 +23,17 @@ import { AuthInterceptor } from 'src/services/auth.interceptor';
 import {MatTableModule} from '@angular/material/table';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { MasterTableComponent } from './components/master-table/master-table.component';
-import { DependentTableComponent } from './components/dependent-table/dependent-table.component';
+
 import { SearchMemberComponent } from './components/search-member/search-member.component';
-import { SearchDependentsComponent } from './components/search-dependents/search-dependents.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { UpdateMemberComponent } from './components/update-member/update-member.component';
-import { UpdateDependentComponent } from './components/update-dependent/update-dependent.component';
+
 import { AddMemberComponent } from './components/add-member/add-member.component';
-import { AddDependentComponent } from './components/add-dependent/add-dependent.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { CheckMediclaimSubscriptionComponent } from './components/check-mediclaim-subscription/check-mediclaim-subscription.component';
-import { PastPaymentComponent } from './components/past-payment/past-payment.component';
-import { RenewMembershipComponent } from './components/renew-membership/renew-membership.component';
+
 import { RenewSubscriptionComponent } from './components/renew-subscription/renew-subscription.component';
 import { PastSubscriptionComponent } from './components/past-subscription/past-subscription.component';
 import { CheckSubscriptionStatusComponent } from './components/check-subscription-status/check-subscription-status.component';
@@ -48,18 +46,11 @@ import { CheckSubscriptionStatusComponent } from './components/check-subscriptio
     LoginComponent,
     AppComponent,
     MasterTableComponent,
-    DependentTableComponent,
     SearchMemberComponent,
-    SearchDependentsComponent,
     FooterComponent,
     UpdateMemberComponent,
-    UpdateDependentComponent,
     AddMemberComponent,
-    AddDependentComponent,
     RegisterComponent,
-    CheckMediclaimSubscriptionComponent,
-    PastPaymentComponent,
-    RenewMembershipComponent,
     RenewSubscriptionComponent,
     PastSubscriptionComponent,
     CheckSubscriptionStatusComponent

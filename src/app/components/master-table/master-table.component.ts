@@ -17,8 +17,8 @@ export class MasterTableComponent implements OnInit {
     this.masterService.getMasterList().subscribe(
       (resp) =>{
         this.masterTableData = resp;
-        this.Data=this.masterTableData.data;
-        //console.log(this.Data[0]);
+        this.Data=this.masterTableData;
+        console.log(this.Data);
         //console.log(this.masterTableData.data);
         if(this.masterTableData=='' || this.masterTableData==null){
           this.masterTableData = 'No Data Found !!';

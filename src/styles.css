@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    background: rgb(255,0,229);
+    background: linear-gradient(344deg, rgba(255,0,229,0.9924928467480743) 0%, rgba(20,97,121,1) 33%, rgba(26,155,184,1) 66%, rgba(93,162,56,1) 100%);
+
+ }
 
 .text-center{
     text-align: center;

@@ -27,7 +27,7 @@ export class CheckSubscriptionStatusComponent implements OnInit {
         this.fetchedData = resp;
         console.log(this.fetchedData);
         this.data=true;
-        if(this.fetchedData=='' || this.fetchedData==null || this.fetchedData.data.length<1){
+        if(this.fetchedData=='' || this.fetchedData==null || this.fetchedData.length<1){
           this.noDataDisplay ="No Match found!!"
           this.data=false;
         }

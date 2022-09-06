@@ -23,16 +23,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let member of fetchedData.data;let index=index">
-                        <td><b>{{member['ID_NUMBER']}}</b></td>
-                        <td>{{member['MODE_OF_PAYMENT']}}</td>
-                        <td>{{member['REFERENCE_NUMBER']}}</td>
-                        <td>{{this.datepipe.transform(member['ISSUE_DATE'], 'dd/MM/yyyy') }}</td>
-                        <td>{{this.datepipe.transform(member['EXPIRY_DATE'], 'dd/MM/yyyy') }}</td>
-                        <td><b>{{member['BANK']}}</b></td>
-                        <td><b>{{member['BRANCH']}}</b></td>
-                        <td><b>{{member['AMOUNT']}}</b></td>
-                        <td><b>{{member['REMARKS']}}</b></td>
+                    <tr *ngFor="let member of fetchedData;let index=index">
+                        <td><b>{{member['id_NUMBER']}}</b></td>
+                        <td>{{member['mode_OF_PAYMENT']}}</td>
+                        <td>{{member['reference_NUMBER']}}</td>
+                        <td>{{this.datepipe.transform(member['issue_DATE'], 'dd/MM/yyyy') }}</td>
+                        <td>{{this.datepipe.transform(member['expiry_DATE'], 'dd/MM/yyyy') }}</td>
+                        <td><b>{{member['bank']}}</b></td>
+                        <td><b>{{member['branch']}}</b></td>
+                        <td><b>{{member['amount']}}</b></td>
+                        <td><b>{{member['remarks']}}</b></td>
                         <td style='white-space: nowrap'>
                             <button type="button" (click)="printReceipt(member['NO'])" mat-raised-button color="warn">PRINT</button>
                         </td>
