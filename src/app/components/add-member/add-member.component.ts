@@ -36,6 +36,7 @@ export class AddMemberComponent implements OnInit {
 
   }
   addMember(){
+    this.member['registration_DATE']=new Date();
     
     // Object.entries(this.member).forEach(
     //   ([key, value]) => //console.log(key, value)
