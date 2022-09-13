@@ -19,7 +19,6 @@
                         <th>BRANCH</th>
                         <th>AMOUNT</th>
                         <th>REMARKS</th>
-                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,9 +32,6 @@
                         <td><b>{{member['branch']}}</b></td>
                         <td><b>{{member['amount']}}</b></td>
                         <td><b>{{member['remarks']}}</b></td>
-                        <td style='white-space: nowrap'>
-                            <button type="button" (click)="printReceipt(member['NO'])" mat-raised-button color="warn">PRINT</button>
-                        </td>
                     </tr>
                 </tbody>
             </table>

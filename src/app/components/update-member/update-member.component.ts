@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class UpdateMemberComponent implements OnInit {
   departmentList:any;
   // member=new Member();
-  member= new Memberu();
+  member= new Member();
   noDataFound='';
   Data:any;
   fetchedData:any;
@@ -45,14 +45,12 @@ export class UpdateMemberComponent implements OnInit {
     )
     this.memberService.getMemberById(this.id).subscribe(
       (resp:any) =>{
-        //console.log(resp.data);
-        this.member = resp.data[0];
-        this.dob=this.datePipe.transform(this.member['DATE_OF_BIRTH'],'yyyy-MM-dd');
-        this.dor=this.datePipe.transform(this.member['DATE_OF_RETIREMENT'],'yyyy-MM-dd');
-        this.rd=this.datePipe.transform(this.member['REGISTRATION_DATE'],'yyyy-MM-dd');
-        this.member['DATE_OF_BIRTH']=this.dob;
-        this.member['DATE_OF_RETIREMENT']=this.dor;
-        this.member['REGISTRATION_DATE']=this.rd;
+        //console.log(resp);
+        this.member = resp;
+        this.dob=this.datePipe.transform(this.member['date_OF_BIRTH'],'yyyy-MM-dd');
+        this.rd=this.datePipe.transform(this.member['registration_DATE'],'yyyy-MM-dd');
+        this.member['date_OF_BIRTH']=this.dob;
+        this.member['registration_DATE']=this.rd;
       },
       error=>{
         //console.log("No Member Found");
@@ -60,16 +58,6 @@ export class UpdateMemberComponent implements OnInit {
         this.data=false;
       }
     )
-  }
-  calculateAge(dateString:any) {
-    let age:any;
-    if (dateString) {
-      age = Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 3600 * 24)) / 365;
-      }
-    age=Math.floor(age);
-    //console.log({age})
-    this.member['AGE']=age;
-    return age;
   }
   updateMember(){
     this.memberService.updateMember(this.id, this.member).subscribe(data =>
@@ -79,7 +67,7 @@ export class UpdateMemberComponent implements OnInit {
         this.router.navigate(['/dashboard']);
         },
         error=>{
-          //console.log(error)
+          console.log(error)
           });
   }
   successNotification(status:string,message:string) {

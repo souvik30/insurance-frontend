@@ -21,7 +21,7 @@ export class SearchMemberComponent implements OnInit {
   }
   searchByParam(){
     //console.log(this.searchValue);
-    this.masterTableService.getMasterListbyParams(this.searchValue,this.searchValue,this.searchValue).subscribe(
+    this.masterTableService.getMasterListbyParams(this.searchValue,this.searchValue).subscribe(
       (resp:any) =>{
         this.fetchedData = resp;
         console.log(this.fetchedData);

@@ -1,11 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+const hour=new Date().getHours().toString()
+const minute=new Date().getMinutes().toString()
+const day=new Date().getDate().toString()
 export const environment = {
   production: false,
   URL:"http://localhost:1918/",
-  version:"2.9"+ Date.now().toString().substring(3)
+  version:day+"."+hour+minute
 };
 
 /*

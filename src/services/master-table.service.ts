@@ -24,8 +24,8 @@ export class MasterTableService {
   getMasterList() {
     return this.http.get(this.URL + 'master/');
   }
-  getMasterListbyParams(id: any, mobile: any, ticket: any) {
-    return this.http.get(this.URL + 'master/' + id + '/' + mobile + '/' + ticket);
+  getMasterListbyParams(id: any, mobile: any) {
+    return this.http.get(this.URL + 'master/' + id + '/' + mobile + '/');
   }
   getDepartment() {
     return this.http.get(this.URL + "master/department");
@@ -36,7 +36,7 @@ export class MasterTableService {
   deleteMember(id: any) {
     return this.http.delete(this.URL + "master/" + id);
   }
-  updateMember(id: any, member: Memberu) {
+  updateMember(id: any, member: Member) {
     return this.http.put(this.URL + "master/" + id, member);
   }
   getMemberById(id: any) {

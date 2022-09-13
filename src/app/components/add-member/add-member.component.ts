@@ -44,11 +44,11 @@ export class AddMemberComponent implements OnInit {
       (resp:any) => {
         //console.log(resp);
         //const id=resp.id;
-        this.successNotification("Added","Member with ID: "+this.member.id_NUMBER+" is Added Successfully");
+        this.successNotification("Added","Member with ID: "+resp.id_NUMBER+" is Added Successfully");
         this.router.navigate(['/dashboard']);
       },
       error => {
-        this.failedNotification("Failed","Member with ID: "+this.member.id_NUMBER+" Was not Added");
+        this.failedNotification("Failed","Member Was not Added");
         //console.log(error);
       }
     );
@@ -68,7 +68,7 @@ export class AddMemberComponent implements OnInit {
       }
     age=Math.floor(age);
     //console.log({age})
-    this.member.age=age;
+    //this.member.age=age;
     return age;
   }
 
