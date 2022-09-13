@@ -1,7 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MediclaimService } from 'src/services/mediclaim.service';
 import { SubscriptionService } from 'src/services/subscription.service';
 import Swal from 'sweetalert2';
 

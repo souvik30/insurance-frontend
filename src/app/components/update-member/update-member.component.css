@@ -10,3 +10,11 @@
 button:disabled {
     background-color: rgb(42, 62, 59);
  }
+ form {
+    background-color: rgba(255, 255, 255, 0.814);
+    border-radius: 25px;
+    border: 2px solid #71a823;
+    padding: 20px;
+    width: relative;
+    height: relative;
+  }

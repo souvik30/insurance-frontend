@@ -2,7 +2,7 @@
 <div class="bootstrap-wrapper">
     <div class="container mt text-center">
         <form (submit)="searchByParam()">
-            <input type="text" placeholder="Enter ID Number / Ticket Number / Mobile Number" name="search" [(ngModel)]="searchValue"> &nbsp;
+            <input type="text" placeholder="Enter ID Number / Mobile Number" name="search" [(ngModel)]="searchValue"> &nbsp;
             <button mat-raised-button color="primary" type="submit">Search</button>
         </form>
         <a mat-raised-button color="primary" class="mb mt" routerLink='/dashboard'>Back</a> &nbsp;

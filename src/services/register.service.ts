@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterService {
 
-  URL=environment.URL;
+  URL=environment.AuthURL;
   constructor(private http: HttpClient) { }
 
   registerAdmin(admin:Admin){

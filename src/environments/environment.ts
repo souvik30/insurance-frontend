@@ -6,7 +6,9 @@ const minute=new Date().getMinutes().toString()
 const day=new Date().getDate().toString()
 export const environment = {
   production: false,
-  URL:"http://localhost:1918/",
+  AuthURL:"http://localhost:8084/api/auth/",
+  MemberURL:"http://localhost:1918/master/",
+  PaymentURL:"http://localhost:1919/payment/",
   version:day+"."+hour+minute
 };
 

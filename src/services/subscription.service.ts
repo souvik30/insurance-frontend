@@ -8,19 +8,19 @@ import { environment } from 'src/environments/environment';
 })
 export class SubscriptionService {
 
-  URL = environment.URL;
+  URL = environment.PaymentURL;
   constructor(private http: HttpClient) {}
 
   getStatus(id: any) {
-    return this.http.get(this.URL + 'payment/status/' + id);
+    return this.http.get(this.URL + 'status/' + id);
   }
   getPreviousRecords(id: any) {
-    return this.http.get(this.URL + 'payment/past/' + id);
+    return this.http.get(this.URL + 'past/' + id);
   }
   printPastRecords(paymentID: number) {
     return this.http.get(this.URL + 'print/pastRecords' + paymentID);
   }
   renewSubscription(payment: Payment,id:any){
-    return this.http.post(this.URL + 'payment/activate/'+id, payment);
+    return this.http.post(this.URL + 'activate/'+id, payment);
   }
 }

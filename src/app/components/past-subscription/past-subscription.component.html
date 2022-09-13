@@ -10,7 +10,6 @@
             <table width="90%" *ngIf="data" id="customers">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>MODE OF PAYMENT</th>
                         <th>REFERENCE NUMBER</th>
                         <th>ISSUE DATE</th>
@@ -18,12 +17,14 @@
                         <th>BANK</th>
                         <th>BRANCH</th>
                         <th>AMOUNT</th>
+                        <th>Payment ID</th>
+                        <th>ID</th>
                         <th>REMARKS</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let member of fetchedData;let index=index">
-                        <td><b>{{member['id_NUMBER']}}</b></td>
+                        
                         <td>{{member['mode_OF_PAYMENT']}}</td>
                         <td>{{member['reference_NUMBER']}}</td>
                         <td>{{this.datepipe.transform(member['issue_DATE'], 'dd/MM/yyyy') }}</td>
@@ -31,6 +32,8 @@
                         <td><b>{{member['bank']}}</b></td>
                         <td><b>{{member['branch']}}</b></td>
                         <td><b>{{member['amount']}}</b></td>
+                        <td><b>{{member['no']}}</b></td>
+                        <td><b>{{member['id_NUMBER']}}</b></td>
                         <td><b>{{member['remarks']}}</b></td>
                     </tr>
                 </tbody>

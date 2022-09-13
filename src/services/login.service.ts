@@ -6,8 +6,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  URL="http://localhost:8084/api/auth/";
-  VAL_URL=environment.URL;
+  URL=environment.AuthURL;
+  VAL_URL=environment.MemberURL;
   constructor(private http:HttpClient) { }
 
   generateToken(userid:string,password:string){
@@ -23,7 +23,7 @@ export class LoginService {
   }
   
   tokenIsValid(){
-    return this.http.get(this.VAL_URL+"master/validate",{responseType: 'json'});
+    return this.http.get(this.VAL_URL+"validate",{responseType: 'json'});
 
   }
 

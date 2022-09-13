@@ -13,9 +13,6 @@ import {
   Payment
 } from 'src/app/models/payment.model';
 import {
-  MediclaimService
-} from 'src/services/mediclaim.service';
-import {
   SubscriptionService
 } from 'src/services/subscription.service';
 import Swal from 'sweetalert2';
